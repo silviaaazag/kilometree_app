@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Installa KILOMETREE</title>
+    <style>
+        /* Reset e base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #5b6e46; /* Verde scuro KiloMeTree */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            color: #f7dfcb;
+            text-align: center;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 215, 175, 0.04) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 380px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 0 16px;
+        }
+
+        /* Logo card */
+        .logo-card {
+            width: 120px;
+            height: 120px;
+            background-color: #f7dfcb;
+            border-radius: 28px;
+            border: 3px solid #f2ab55;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(242, 171, 85, 0.25);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-card img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Titolo principale: KILOMETREE in maiuscolo */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            color: #f7dfcb;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            word-break: keep-all;
+        }
+
+        /* Sottotitolo */
+        .subhead {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.92;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+            background: rgba(255, 215, 175, 0.07);
+            padding: 8px 22px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            border: 1px solid rgba(242, 171, 85, 0.08);
+        }
+
+        /* Card istruzioni */
+        .steps {
+            width: 100%;
+            max-width: 320px;
+            text-align: left;
+            margin-bottom: 28px;
+            background: rgba(247, 223, 203, 0.04);
+            padding: 20px 20px 12px 20px;
+            border-radius: 32px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(242, 171, 85, 0.12);
+        }
+
+        .step {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .step:last-child {
+            margin-bottom: 6px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f2ab55;
+            color: #3d4f2e;
+            font-weight: 700;
+            font-size: 0.85rem;
+            min-width: 26px;
+            height: 26px;
+            border-radius: 30px;
+            padding: 0 2px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        .bold {
+            font-weight: 700;
+            color: #fce9d8;
+            letter-spacing: 0.2px;
+        }
+
+        .highlight-icon {
+            display: inline-block;
+            background: rgba(247, 223, 203, 0.08);
+            padding: 0 8px;
+            border-radius: 14px;
+            font-weight: 600;
+            margin: 0 2px;
+        }
+
+        /* Icona condivisione (quadrato + freccia) */
+        .share-icon-symbol {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #f7dfcb;
+            border-radius: 6px;
+            position: relative;
+            vertical-align: middle;
+            margin: 0 4px;
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 0 0 1px rgba(242, 171, 85, 0.15);
+        }
+
+        .share-icon-symbol::before {
+            content: '↑';
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 700;
+            color: #f7dfcb;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Freccia animata */
+        .arrow-bounce {
+            font-size: 2.4rem;
+            color: #f2ab55;
+            margin-top: 4px;
+            display: inline-block;
+            animation: gentle-bounce 2.2s infinite ease-in-out;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+            line-height: 1;
+        }
+
+        @keyframes gentle-bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Piccolo dettaglio: nome nel footer (opzionale) */
+        .brand-tag {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.3;
+            margin-top: 16px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Logo -->
+        <div class="logo-card">
+            <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=150&q=80" alt="KILOMETREE Logo" />
+        </div>
+
+        <!-- Nome in maiuscolo: KILOMETREE -->
+        <h1>KILOMETREE</h1>
+        <p class="subhead">Installa l'app su iPhone</p>
+
+        <!-- Istruzioni -->
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-text">
+                    Clicca su <span class="bold">Condividi</span>
+                    <span class="share-icon-symbol"></span>
+                    <br />
+                    <span style="font-size:0.9rem; opacity:0.8;">in basso nello schermo.</span>
+                </span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-text">
+                    Scorri e scegli <span class="bold">"Aggiungi alla Home"</span>.
+                </span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-text">
+                    Tocca <span class="bold">Aggiungi</span> in alto a destra.
+                </span>
+            </div>
+        </div>
+
+        <!-- Freccia animata -->
+        <div class="arrow-bounce">↓</div>
+
+        <!-- Piccolo marchio (solo per stile) -->
+        <div class="brand-tag">KILOMETREE · passo dopo passo</div>
+
+    </div>
+
+</body>
+</html>
